@@ -38,8 +38,6 @@ a {
     box-shadow: 0 0 10px 4px rgba(255, 210, 200, 0.3), 0 0 40px 0 rgba(255, 255, 255, 0.3);
     border: 3px solid #fff;
     border-radius: 50%;
-    background: transparent;
-    mix-blend-mode: multiply;
 }
 
 .kist-container .create-form {
