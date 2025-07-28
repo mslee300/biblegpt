@@ -1,15 +1,15 @@
 from django.shortcuts import render
-import openai
+from openai import OpenAI
 import os
 
 from .forms import AnswerForm
 
-openai.api_key = os.environ['OPENAI']
+client = OpenAI(api_key=os.environ['OPENAI'])
 
 
 # AI message generator
 def generate_message(request, prompt):
-    response = openai.ChatCompletion.create(
+    response = client.chat.completions.create(
         model="gpt-4o",
         temperature=0,
         max_tokens=600,
@@ -22,7 +22,7 @@ def generate_message(request, prompt):
             "content":
             f"You are an expert in the Bible. Answer questions using biblical verses. If the Bible does not explicitly address the question, reply with 'The Bible does not explicitly say,' and suggest a related verse. For inappropriate or offensive questions, respond with 'This question does not align with biblical teachings.' Always provide the verse, chapter, and book name when citing. Question: {prompt}"
         }])
-    return response['choices'][0]['message']['content']
+    return response.choices[0].message.content
 
 
 # Main page
