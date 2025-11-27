@@ -5,7 +5,7 @@ import os
 from .forms import AnswerForm
 
 # Initialize OpenAI client - set OPENAI_API_KEY environment variable
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY', 'your-key-here'))
+client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY', '여기다 오픈 AI 키 넣어야 함'))
 
 
 # AI message generator
