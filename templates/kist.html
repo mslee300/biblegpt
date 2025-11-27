@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<a class="main-title" href="/">BibleGPT</a>
+<a class="main-title" href="/">성경 GPT</a>
 <div class="kist-container">
   <div class="bust">
     <img src="/static/img/bible.png">
   </div>
-  <p id="intro-message">"Ask me anything..."</p>
-  <div style="margin: 20px 0; color: #aaa;" class="remaining-queries">ex: What does the Bible say about tattoos?
+  <p id="intro-message">"무엇이든 성경으로 답변해드리는 성경 GPT라고 합니다."</p>
+  <div style="margin: 20px 0; color: #aaa;" class="remaining-queries">예: 문신을 해도 되나요?
   </div>
   <form class="create-form" method="post" onsubmit="showLoading()">
       {% csrf_token %}
-      <input class="text-input" id="prompt" type="text" placeholder="Ask a question..." name="prompt" value="{{ prompt }}" maxlength="150" required>
+      <input class="text-input" id="prompt" type="text" placeholder="무엇이든 물어보세요" name="prompt" value="{{ prompt }}" maxlength="150" required>
       <br>
       <button type="submit" id="ask" class="buttonload">
           <i class="fa fa-spinner fa-spin" id="spinner" style="display:none; margin-right: 8px;"></i>
-          <span id="buttontext">Ask GPT</span>
+          <span id="buttontext">질문하기</span>
       </button>
   </form>
 </div>
@@ -49,7 +49,7 @@ input.addEventListener("keypress", function(event) {
     const spinner = document.getElementById('spinner');
 
     // Change button text to 'Loading'
-    buttonText.innerText = 'Loading';
+    buttonText.innerText = '로딩중...';
 
     // Show the spinner
     spinner.style.display = 'inline-block';
@@ -60,7 +60,7 @@ input.addEventListener("keypress", function(event) {
       const spinner = document.getElementById('spinner');
 
       // Change button text to 'Loading'
-      buttonText.innerText = 'Loading...';
+      buttonText.innerText = '로딩중...';
 
       // Show the spinner
       spinner.style.display = 'inline-block';
